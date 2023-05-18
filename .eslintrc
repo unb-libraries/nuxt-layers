@@ -1,0 +1,34 @@
+{
+  "root": true,
+  "extends": [
+    "@nuxtjs/eslint-config-typescript"
+  ],
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "quote-props": ["warn", "consistent-as-needed"],
+    "quotes": ["error", "backtick"],
+    "space-before-function-paren": ["warn", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "@typescript-eslint/no-unused-vars": ["warn", {
+      "args": "none"
+    }],
+    "vue/no-multiple-template-root": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["app/components/*/**/*.vue"],
+      "rules": {
+        "vue/multi-word-component-names": "off"
+      }
+    },
+    {
+      "files": ["app/pages/**/*.vue"],
+      "rules": {
+        "vue/no-multiple-template-root": "off"
+      }
+    }
+  ]
+}

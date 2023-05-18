@@ -1,2 +1,3 @@
-# nuxt-layers
-Collection of nuxt layers.
+# unb-libraries/nuxt-layers/base
+
+The base layer for UNB-Libraries Nuxt projects.
