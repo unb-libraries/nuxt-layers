@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "main": "./nuxt.config.ts",
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "DEPLOY_ENV=local nuxt dev",
     "lint": "eslint .",
     "postinstall": "nuxt prepare"
   },
