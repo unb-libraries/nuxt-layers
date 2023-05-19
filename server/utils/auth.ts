@@ -1,4 +1,4 @@
-import type { EventHandler } from "h3"
+import type { H3Event, EventHandler } from "h3"
 
 export function defineAuthEventHandler<T>(handler: EventHandler<T>): EventHandler<T> {
   return defineEventHandler((event) => {
@@ -8,4 +8,8 @@ export function defineAuthEventHandler<T>(handler: EventHandler<T>): EventHandle
     }
     return handler(event)
   })
+}
+
+export function useCurrentUser(event: H3Event): User {
+  return event.context.user
 }
