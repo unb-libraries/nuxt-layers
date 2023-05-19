@@ -1,7 +1,8 @@
-import { defu } from 'defu'
-import devConfig from './dev'
-
-export default defu({
+export default defineNuxtConfig({
+  extends: [
+    `../prod`,
+    `../dev`,
+  ],
   runtimeConfig: {
     session: {
       cookie: {
@@ -10,4 +11,4 @@ export default defu({
       password: `incredibly-secure-secret-nobody-will-guess`,
     },
   },
-}, devConfig)
+})

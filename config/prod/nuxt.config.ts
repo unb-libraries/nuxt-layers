@@ -1,4 +1,4 @@
-export default {
+export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       session: {
@@ -10,4 +10,4 @@ export default {
       password: ``,
     },
   },
-}
+})
