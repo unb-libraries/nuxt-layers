@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": [
+    "../"
+  ],
+  "overrides": [
+    {
+      "files": ["./pages/**/*.vue"],
+      "rules": {
+        "vue/no-multiple-template-root": "off"
+      }
+    }
+  ]
+}
