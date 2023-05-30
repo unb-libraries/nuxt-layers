@@ -1,6 +1,6 @@
 import { defu } from "defu"
 
-export default defineAuthEventHandler(async (event) => {
+export default defineEventHandler(async (event) => {
   const storage = useStorage(`db`)
 
   const users = (await storage.getItem(`users`) || {}) as UserCollection

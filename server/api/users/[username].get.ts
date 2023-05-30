@@ -1,13 +1,15 @@
-export default defineAuthEventHandler(async (event) => {
+export default defineEventHandler(async (event) => {
   const storage = useStorage(`db`)
-  if (!event.context.params?.username) {
+  const currentUser = useCurrentUser(event)
+  const { username } = event.context.params!
+
+  if (!currentUser || currentUser.username !== username) {
     throw createError({
-      statusCode: 400,
-      statusMessage: `Username is required`,
+      statusCode: 403,
+      statusMessage: `Unauthorized`,
     })
   }
 
-  const { username } = event.context.params
   const users = (await storage.getItem(`users`) || {}) as UserCollection
 
   if (!users || !users[username]) {
