@@ -1,6 +1,14 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
+      saml: {
+        entryPoint: ``,
+        callbackUrl: ``,
+        issuer: ``,
+        cert: ``,
+        validateInResponseTo: ValidateInResponseTo.never,
+        disableRequestedAuthnContext: true,
+      },
       session: {
         name: `sessionId`,
       },
