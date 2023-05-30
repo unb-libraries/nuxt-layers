@@ -1,4 +1,14 @@
+import { ValidateInResponseTo } from "@node-saml/node-saml/lib/types"
+
 export default defineNuxtConfig({
+  nitro: {
+    storage: {
+      db: {
+        driver: `fs`,
+        base: `./.data/db`,
+      },
+    },
+  },
   runtimeConfig: {
     public: {
       saml: {
