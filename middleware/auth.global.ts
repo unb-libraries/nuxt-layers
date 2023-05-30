@@ -10,7 +10,7 @@ interface RouteAuthMeta extends RouteMeta {
   auth?: AuthMeta
 }
 
-export default (from: RouteLocationNormalized, to: RouteLocationNormalized) => {
+export default async (from: RouteLocationNormalized, to: RouteLocationNormalized) => {
   if (process.client) { return }
 
   const event = useRequestEvent()
@@ -20,7 +20,8 @@ export default (from: RouteLocationNormalized, to: RouteLocationNormalized) => {
     ...(from.meta as RouteAuthMeta).auth || {},
   }
 
-  if (!auth.public && !event.context.session.uid) {
+  const currentUser = await useCurrentUser()
+  if (!auth.public && !currentUser) {
     // Use instead of navigateTo to avoid ERR_HTTP_HEADERS_SENT error
     if (auth.redirect) {
       const redirectTo = to.path
