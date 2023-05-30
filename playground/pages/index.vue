@@ -7,5 +7,5 @@
 </template>
 
 <script setup lang="ts">
-const session = useCurrentSession()
+const session = await useCurrentSession()
 </script>

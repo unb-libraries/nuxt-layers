@@ -1,8 +1,8 @@
 import type { H3Event, EventHandler } from "h3"
 
 export function defineAuthEventHandler<T>(handler: EventHandler<T>): EventHandler<T> {
-  return defineEventHandler((event) => {
-    const { data } = useCurrentServerSession(event)
+  return defineEventHandler(async (event) => {
+    const { data } = await useCurrentServerSession(event)
     if (!data.user) {
       throw createError({ statusCode: 403, message: `Unauthorized` })
     }

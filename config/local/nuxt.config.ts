@@ -8,7 +8,6 @@ export default defineNuxtConfig({
       cookie: {
         secure: false,
       },
-      password: `incredibly-secure-secret-nobody-will-guess`,
     },
   },
 })
