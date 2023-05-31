@@ -1,7 +1,6 @@
 {
-  "name": "@unb-libraries/nuxt-layers-base",
+  "name": "@unb-libraries/nuxt-layer-base",
   "type": "module",
-  "version": "0.0.1",
   "main": "./nuxt.config.ts",
   "scripts": {
     "dev": "nuxt dev ./playground",
