@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import { sendRedirect } from "h3"
+import { sendRedirect, useSession } from "h3"
 
 definePageMeta({
   middleware: [
-    function () {
+    async function () {
       const event = useRequestEvent()
-      event.context.session = null
+
+      const sessionConfig = useSessionConfig()
+      const { update } = await useSession(event, sessionConfig)
+      await update((data) => {
+        delete data.user
+        return data
+      })
+
       return sendRedirect(event, `/`, 302)
     },
   ],
